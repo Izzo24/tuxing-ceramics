@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>土形 Tǔ Xíng Ceramics</title>
+<style>
+:root{
+  --void:#100c08;
+  --dark:#1a1410;
+  --char:#2a2018;
+  --clay:#6a4830;
+  --terra:#9a5035;
+  --copper:#b87040;
+  --sand:#c8a880;
+  --linen:#e8dece;
+  --cream:#f2ece0;
+  --white:#f7f3eb;
+  --sage:#6a7858;
+  --ash:#9a9285;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--white);color:var(--char);font-family:'Georgia','Times New Roman',serif;overflow-x:hidden}
+
+/* HEADER */
+header{position:fixed;top:0;left:0;width:100%;z-index:100;padding:20px 52px;display:flex;justify-content:space-between;align-items:center;transition:background 0.5s}
+header.scrolled{background:rgba(247,243,235,0.97);border-bottom:1px solid rgba(184,112,64,0.15)}
+.logo{display:flex;align-items:center;gap:16px;text-decoration:none;color:var(--char)}
+.logo svg{width:36px;height:36px}
+.logo-text{display:flex;flex-direction:column;line-height:1.1}
+.logo-zh{font-size:16px;letter-spacing:0.18em;color:var(--linen)}
+.logo-zh.dark{color:var(--char)}
+.logo-en{font-size:8px;letter-spacing:0.5em;color:rgba(232,222,206,0.45);text-transform:uppercase;font-family:'Helvetica Neue',sans-serif;margin-top:3px}
+.logo-en.dark{color:rgba(42,32,24,0.38)}
+nav{display:flex;gap:32px;align-items:center}
+nav a{text-decoration:none;color:rgba(232,222,206,0.42);font-size:9.5px;letter-spacing:0.3em;transition:color 0.3s;font-family:'Helvetica Neue',sans-serif;text-transform:uppercase}
+nav a:hover{color:var(--sand)}
+nav.dark-nav a{color:rgba(42,32,24,0.38)}
+nav.dark-nav a:hover{color:var(--clay)}
+.nav-book{border:1px solid rgba(200,168,128,0.45)!important;color:var(--sand)!important;padding:9px 22px}
+.nav-book:hover{background:var(--copper)!important;color:var(--white)!important;border-color:var(--copper)!important}
+.nav-book.dark{border:1px solid rgba(184,112,64,0.4)!important;color:var(--copper)!important}
+.nav-book.dark:hover{background:var(--copper)!important;color:var(--white)!important;border-color:var(--copper)!important}
+
+/* HERO */
+.hero{height:100vh;background:var(--void);display:grid;grid-template-columns:1fr 1fr;overflow:hidden}
+.hero-left{display:flex;flex-direction:column;justify-content:flex-end;padding:80px 52px 80px 80px;position:relative;z-index:2}
+.hero-eyebrow{display:flex;align-items:center;gap:12px;margin-bottom:28px}
+.hero-eyebrow-line{width:28px;height:1px;background:var(--copper)}
+.hero-eyebrow span{font-size:9px;letter-spacing:0.5em;color:rgba(184,112,64,0.6);text-transform:uppercase;font-family:'Helvetica Neue',sans-serif}
+.hero-h1{font-size:clamp(46px,5.8vw,84px);font-weight:400;color:var(--linen);line-height:1.0;letter-spacing:0.03em;margin-bottom:24px}
+.hero-h1 em{font-style:italic;color:var(--copper)}
+.hero-desc{font-size:14px;color:rgba(232,222,206,0.38);line-height:2.0;font-family:'Helvetica Neue',sans-serif;font-weight:300;max-width:360px;margin-bottom:44px}
+.btn-clay{display:inline-block;padding:12px 30px;background:var(--terra);color:var(--linen);text-decoration:none;font-size:9.5px;letter-spacing:0.4em;font-family:'Helvetica Neue',sans-serif;text-transform:uppercase;transition:background 0.4s;margin-right:14px}
+.btn-clay:hover{background:var(--copper)}
+.btn-ghost-linen{display:inline-block;padding:11px 28px;border:1px solid rgba(232,222,206,0.18);color:rgba(232,222,206,0.4);text-decoration:none;font-size:9.5px;letter-spacing:0.3em;font-family:'Helvetica Neue',sans-serif;text-transform:uppercase;transition:all 0.4s}
+.btn-ghost-linen:hover{border-color:rgba(232,222,206,0.35);color:var(--linen)}
+.hero-right{position:relative;overflow:hidden}
+
+/* PHILOSOPHY */
+.philosophy{padding:120px 52px;background:var(--cream);display:grid;grid-template-columns:1fr 1fr;gap:80px;max-width:1200px;margin:0 auto}
+.phil-left{}
+.sec-label{font-size:9px;letter-spacing:0.5em;color:var(--copper);text-transform:uppercase;font-family:'Helvetica Neue',sans-serif;margin-bottom:16px;display:block}
+.sec-h2{font-size:clamp(26px,3.5vw,48px);font-weight:400;line-height:1.12;margin-bottom:24px}
+.sec-h2 em{font-style:italic;color:var(--sage)}
+.body-text{font-size:14.5px;color:var(--clay);line-height:2.05;font-family:'Helvetica Neue',sans-serif;font-weight:300;margin-bottom:18px}
+.phil-quote{margin-top:32px;padding:22px 26px 22px 30px;border-left:2px solid var(--copper);background:rgba(184,112,64,0.04)}
+.phil-quote-text{font-size:15px;font-style:italic;color:var(--char);line-height:1.7;margin-bottom:8px}
+.phil-quote-attr{font-size:10px;letter-spacing:0.25em;color:rgba(106,72,48,0.45);font-family:'Helvetica Neue',sans-serif;text-transform:uppercase}
+.phil-right{display:flex;flex-direction:column;gap:20px;padding-top:20px}
+.phil-stat-row{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.phil-stat{padding:24px;background:var(--white);border:1px solid rgba(200,168,128,0.2)}
+.phil-stat-num{font-size:30px;color:var(--char);margin-bottom:4px}
+.phil-stat-label{font-size:10px;letter-spacing:0.2em;color:rgba(106,72,48,0.45);font-family:'Helvetica Neue',sans-serif;text-transform:uppercase}
+.phil-visual{width:100%;aspect-ratio:4/3}
+
+/* COLLECTIONS */
+.collections{padding:120px 52px;background:var(--linen)}
+.collections-inner{max-width:1100px;margin:0 auto}
+.coll-header{margin-bottom:56px;display:flex;justify-content:space-between;align-items:flex-end}
+.coll-header-left{}
+.coll-header-link{font-size:9.5px;letter-spacing:0.3em;color:var(--clay);text-decoration:none;text-transform:uppercase;font-family:'Helvetica Neue',sans-serif;border-bottom:1px solid rgba(106,72,48,0.3);padding-bottom:2px;transition:color 0.3s}
+.coll-header-link:hover{color:var(--terra)}
+.coll-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.coll-card{background:var(--white);overflow:hidden;cursor:pointer;transition:transform 0.4s,box-shadow 0.4s}
+.coll-card:hover{transform:translateY(-5px);box-shadow:0 16px 40px rgba(16,12,8,0.07)}
+.coll-visual{width:100%;aspect-ratio:1/1;position:relative;overflow:hidden;background:var(--cream)}
+.coll-body{padding:24px}
+.coll-series{font-size:8px;letter-spacing:0.5em;color:var(--copper);text-transform:uppercase;font-family:'Helvetica Neue',sans-serif;margin-bottom:6px}
+.coll-name{font-size:20px;color:var(--char);margin-bottom:6px}
+.coll-pieces{font-size:10px;letter-spacing:0.2em;color:rgba(106,72,48,0.4);font-family:'Helvetica Neue',sans-serif;margin-bottom:10px;text-transform:uppercase}
+.coll-desc{font-size:13px;color:var(--clay);line-height:1.8;font-family:'Helvetica Neue',sans-serif;font-weight:300}
+.coll-price{font-size:12px;color:var(--terra);margin-top:14px;font-family:'Helvetica Neue',sans-serif;letter-spacing:0.1em}
+
+/* WORKSHOP */
+.workshop{padding:120px 52px;background:var(--char)}
+.workshop-inner{max-width:1100px;margin:0 auto}
+.workshop-header{margin-bottom:64px}
+.workshop-header .sec-label{color:rgba(184,112,64,0.55)}
+.workshop-header .sec-h2{color:var(--linen)}
+.workshop-header .sec-h2 em{color:var(--copper)}
+.workshop-header .body-text{color:rgba(232,222,206,0.38);max-width:520px}
+.workshop-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:rgba(232,222,206,0.04)}
+.ws-item{background:var(--char);padding:44px;transition:background 0.3s}
+.ws-item:hover{background:rgba(232,222,206,0.03)}
+.ws-icon{width:44px;height:44px;margin-bottom:20px}
+.ws-level{font-size:8.5px;letter-spacing:0.4em;color:rgba(184,112,64,0.45);text-transform:uppercase;font-family:'Helvetica Neue',sans-serif;margin-bottom:8px}
+.ws-name{font-size:20px;color:var(--linen);margin-bottom:6px}
+.ws-en{font-size:9.5px;letter-spacing:0.3em;color:rgba(232,222,206,0.25);font-family:'Helvetica Neue',sans-serif;text-transform:uppercase;margin-bottom:12px}
+.ws-desc{font-size:13px;color:rgba(232,222,206,0.38);line-height:1.9;font-family:'Helvetica Neue',sans-serif;font-weight:300}
+.ws-meta{display:flex;gap:24px;margin-top:22px;padding-top:18px;border-top:1px solid rgba(232,222,206,0.06)}
+.ws-meta-item{display:flex;flex-direction:column;gap:4px}
+.ws-meta-label{font-size:8px;letter-spacing:0.35em;color:rgba(184,112,64,0.35);font-family:'Helvetica Neue',sans-serif;text-transform:uppercase}
+.ws-meta-val{font-size:13px;color:rgba(232,222,206,0.5);font-family:'Helvetica Neue',sans-serif}
+
+/* PROCESS */
+.process{padding:120px 52px;background:var(--cream)}
+.process-inner{max-width:1100px;margin:0 auto}
+.process-header{margin-bottom:56px}
+.proc-timeline{display:flex;flex-direction:column;gap:0}
+.proc-row{display:grid;grid-template-columns:100px 1px 1fr;gap:0 32px;align-items:start;padding-bottom:48px;position:relative}
+.proc-row:last-child{padding-bottom:0}
+.proc-row:last-child .proc-line{background:transparent}
+.proc-num-col{text-align:right;padding-top:4px}
+.proc-num{font-size:9px;letter-spacing:0.4em;color:var(--copper);font-family:'Helvetica Neue',sans-serif;text-transform:uppercase}
+.proc-line{background:rgba(184,112,64,0.15);width:1px;position:relative}
+.proc-dot{width:9px;height:9px;border-radius:50%;background:var(--copper);position:absolute;top:5px;left:-4px}
+.proc-content{padding-left:16px}
+.proc-name{font-size:20px;color:var(--char);margin-bottom:6px}
+.proc-name-en{font-size:9.5px;letter-spacing:0.3em;color:rgba(154,146,133,0.55);font-family:'Helvetica Neue',sans-serif;text-transform:uppercase;margin-bottom:10px}
+.proc-desc{font-size:13.5px;color:var(--clay);line-height:1.9;font-family:'Helvetica Neue',sans-serif;font-weight:300;max-width:600px}
+
+/* ARTIST */
+.artist{padding:120px 52px;background:var(--white)}
+.artist-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.artist-left{}
+.artist-visual{width:100%;aspect-ratio:3/4}
+.artist-right{}
+.artist-right .sec-label{display:block;margin-bottom:16px}
+.artist-right .sec-h2{margin-bottom:14px}
+.artist-right .sec-h2 em{color:var(--terra)}
+.artist-jp{font-size:12px;letter-spacing:0.3em;color:rgba(154,146,133,0.5);font-family:'Helvetica Neue',sans-serif;margin-bottom:24px;text-transform:uppercase}
+.artist-bio{font-size:14px;color:var(--clay);line-height:2.0;font-family:'Helvetica Neue',sans-serif;font-weight:300;margin-bottom:16px}
+.artist-awards{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.award-tag{font-size:9px;letter-spacing:0.2em;padding:5px 12px;border:1px solid rgba(184,112,64,0.2);color:rgba(106,72,48,0.5);font-family:'Helvetica Neue',sans-serif;text-transform:uppercase}
+
+/* CTA */
+.cta{padding:140px 52px;background:var(--linen);text-align:center;position:relative;overflow:hidden}
+.cta-bg-text{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:clamp(100px,18vw,260px);color:rgba(106,72,48,0.04);user-select:none;pointer-events:none;letter-spacing:-0.03em}
+.cta-inner{position:relative;z-index:2;max-width:520px;margin:0 auto}
+.cta-label{font-size:9px;letter-spacing:0.5em;color:rgba(184,112,64,0.5);text-transform:uppercase;font-family:'Helvetica Neue',sans-serif;margin-bottom:20px}
+.cta-h2{font-size:clamp(32px,4.5vw,58px);color:var(--char);font-weight:400;line-height:1.06;margin-bottom:20px}
+.cta-h2 em{font-style:italic;color:var(--clay)}
+.cta-desc{font-size:14.5px;color:rgba(106,72,48,0.5);line-height:1.95;font-family:'Helvetica Neue',sans-serif;font-weight:300;margin-bottom:44px}
+.btn-dark-clay{display:inline-block;padding:13px 32px;background:var(--char);color:var(--linen);text-decoration:none;font-size:9.5px;letter-spacing:0.4em;font-family:'Helvetica Neue',sans-serif;text-transform:uppercase;transition:background 0.4s;margin-right:14px}
+.btn-dark-clay:hover{background:var(--void)}
+.btn-ghost-clay{display:inline-block;padding:12px 28px;border:1px solid rgba(106,72,48,0.25);color:rgba(106,72,48,0.4);text-decoration:none;font-size:9.5px;letter-spacing:0.3em;font-family:'Helvetica Neue',sans-serif;text-transform:uppercase;transition:all 0.4s}
+.btn-ghost-clay:hover{border-color:rgba(106,72,48,0.45);color:var(--clay)}
+
+/* FOOTER */
+footer{background:var(--void)}
+.footer-top{max-width:1200px;margin:0 auto;padding:80px 52px;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:52px;border-bottom:1px solid rgba(232,222,206,0.05)}
+.footer-logo-zh{font-size:18px;letter-spacing:0.15em;color:var(--linen);margin-bottom:4px}
+.footer-logo-en{font-size:8px;letter-spacing:0.5em;color:rgba(232,222,206,0.18);text-transform:uppercase;font-family:'Helvetica Neue',sans-serif;margin-bottom:16px}
+.footer-tagline{font-size:12.5px;color:rgba(232,222,206,0.18);line-height:1.9;font-family:'Helvetica Neue',sans-serif;font-weight:300;max-width:220px}
+.footer-col-title{font-size:8.5px;letter-spacing:0.45em;color:rgba(184,112,64,0.38);text-transform:uppercase;font-family:'Helvetica Neue',sans-serif;margin-bottom:20px}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-links a{text-decoration:none;color:rgba(232,222,206,0.18);font-size:12.5px;font-family:'Helvetica Neue',sans-serif;font-weight:300;transition:color 0.3s}
+.footer-links a:hover{color:var(--sand)}
+.footer-bottom{max-width:1200px;margin:0 auto;padding:22px 52px;display:flex;justify-content:space-between;align-items:center}
+.footer-bottom div{font-size:11.5px;color:rgba(232,222,206,0.15);font-family:'Helvetica Neue',sans-serif}
+.footer-bottom a{color:rgba(232,222,206,0.35);text-decoration:none;transition:color 0.3s}
+.footer-bottom a:hover{color:var(--copper)}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity 0.9s ease,transform 0.9s ease}
+.reveal.visible{opacity:1;transform:none}
+.reveal-left{opacity:0;transform:translateX(-20px);transition:opacity 0.9s ease,transform 0.9s ease}
+.reveal-left.visible{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<header id="header">
+  <a href="#" class="logo">
+    <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Ceramic vessel silhouette as logo -->
+      <!-- Vessel body -->
+      <path d="M11 28 Q9 26 9 22 Q9 16 12 12 Q14 10 18 10 Q22 10 24 12 Q27 16 27 22 Q27 26 25 28 Z" fill="rgba(184,112,64,0.12)" stroke="rgba(184,112,64,0.55)" stroke-width="1.2" stroke-linejoin="round"/>
+      <!-- Vessel rim -->
+      <ellipse cx="18" cy="10" rx="5" ry="2.5" stroke="rgba(184,112,64,0.45)" stroke-width="1" fill="none"/>
+      <!-- Vessel foot -->
+      <ellipse cx="18" cy="28" rx="7" ry="2" stroke="rgba(184,112,64,0.35)" stroke-width="0.8" fill="none"/>
+      <!-- Center line (throwing mark) -->
+      <line x1="18" y1="10" x2="18" y2="28" stroke="rgba(184,112,64,0.18)" stroke-width="0.6"/>
+    </svg>
+    <div class="logo-text">
+      <span class="logo-zh" id="logo-zh">土形</span>
+      <span class="logo-en" id="logo-en">Tǔ Xíng Ceramics</span>
+    </div>
+  </a>
+  <nav id="nav">
+    <a href="#collections">作品</a>
+    <a href="#workshop">體驗課</a>
+    <a href="#process">燒製</a>
+    <a href="#artist">關於</a>
+    <a href="#cta" class="nav-book" id="nav-book">訂購 / 報名</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left reveal-left">
+    <div class="hero-eyebrow">
+      <div class="hero-eyebrow-line"></div>
+      <span>台北 · 三峽 · 手拉坯陶藝 · Est. 2016</span>
+    </div>
+    <h1 class="hero-h1">土的<em>形狀</em><br>是手<br>決定的</h1>
+    <p class="hero-desc">土形工作室相信，每一件陶器的形狀，都是創作者與土之間的對話結果。我們以手拉坯的方式，讓每一件作品都保留那個當下的溫度與猶豫。</p>
+    <a href="#collections" class="btn-clay">探索作品</a>
+    <a href="#workshop" class="btn-ghost-linen">體驗課程</a>
+  </div>
+  <div class="hero-right"><img src="images/hero.png" alt="土形 — 拉坯" style="width:100%;height:100%;object-fit:cover;display:block">
+  </div>
+</section>
+
+<!-- PHILOSOPHY -->
+<section class="philosophy">
+  <div class="phil-left reveal-left">
+    <span class="sec-label">Studio Philosophy</span>
+    <h2 class="sec-h2">土，是最<em>誠實</em>的材料</h2>
+    <p class="body-text">陶藝是世界上最古老的手工藝之一，但它從來不只是技術的展示。每一個拉坯的動作，都需要手、土、水和力道之間精細的溝通。稍一分心，形狀就走了。</p>
+    <p class="body-text">土形創立於2016年，在台北三峽的老礦場改建的空間裡，我們用當地的紅土與苗栗的陶土混合，燒製出帶有這片土地色澤的器物。每一件作品，都是台灣的。</p>
+    <div class="phil-quote">
+      <div class="phil-quote-text">"土不說謊，你用什麼心情拉，它就長成什麼樣子。"</div>
+      <div class="phil-quote-attr">— 陳若文，土形創辦人</div>
+    </div>
+  </div>
+  <div class="phil-right reveal">
+    <div class="phil-stat-row">
+      <div class="phil-stat">
+        <div class="phil-stat-num">8年</div>
+        <div class="phil-stat-label">工作室歲月</div>
+      </div>
+      <div class="phil-stat">
+        <div class="phil-stat-num">1,200+</div>
+        <div class="phil-stat-label">手拉坯件數</div>
+      </div>
+      <div class="phil-stat">
+        <div class="phil-stat-num">3種</div>
+        <div class="phil-stat-label">在地陶土來源</div>
+      </div>
+      <div class="phil-stat">
+        <div class="phil-stat-num">0件</div>
+        <div class="phil-stat-label">完全相同的作品</div>
+      </div>
+    </div>
+    <img src="images/products.png" alt="土形 — 陶器" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:2px;display:block">
+  </div>
+</section>
+
+<!-- COLLECTIONS -->
+<section class="collections" id="collections">
+  <div class="collections-inner">
+    <div class="coll-header reveal">
+      <div class="coll-header-left">
+        <span class="sec-label">Collections</span>
+        <h2 class="sec-h2">三個系列<br><em>三種生活尺度</em></h2>
+      </div>
+      <a href="#cta" class="coll-header-link">查看全部作品 →</a>
+    </div>
+    <div class="coll-grid">
+      <div class="coll-card reveal">
+        <div class="coll-visual">
+          <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block">
+            <rect width="400" height="400" fill="#e8dece"/>
+            <defs><radialGradient id="cvg1" cx="50%" cy="30%" r="60%"><stop offset="0%" stop-color="rgba(184,112,64,0.1)"/><stop offset="100%" stop-color="rgba(232,222,206,0)"/></radialGradient></defs>
+            <rect width="400" height="400" fill="url(#cvg1)"/>
+            <!-- Bowl set top view -->
+            <ellipse cx="200" cy="280" rx="130" ry="36" fill="rgba(184,112,64,0.1)" stroke="rgba(184,112,64,0.2)" stroke-width="1.5"/>
+            <!-- Bowl (side view) -->
+            <path d="M90 280 Q80 255 80 235 Q80 215 95 200 Q115 188 155 182 Q178 178 200 178 Q222 178 245 182 Q285 188 305 200 Q320 215 320 235 Q320 255 310 280Z" fill="rgba(154,80,53,0.45)" stroke="rgba(200,168,128,0.25)" stroke-width="1.5"/>
+            <!-- Bowl interior -->
+            <path d="M108 278 Q100 254 100 236 Q100 218 113 205 Q130 194 162 188 Q180 185 200 185 Q220 185 238 188 Q270 194 287 205 Q300 218 300 236 Q300 254 292 278Z" fill="rgba(106,72,48,0.2)"/>
+            <!-- Bowl rim ellipse -->
+            <ellipse cx="200" cy="178" rx="100" ry="28" fill="rgba(154,80,53,0.35)" stroke="rgba(200,168,128,0.3)" stroke-width="1.5"/>
+            <!-- Inner rim line -->
+            <ellipse cx="200" cy="178" rx="85" ry="23" fill="rgba(106,72,48,0.18)"/>
+            <!-- Throwing rings texture -->
+            <g stroke="rgba(200,168,128,0.1)" stroke-width="0.7" fill="none">
+              <path d="M100 250 Q200 240 300 250"/>
+              <path d="M95 225 Q200 214 305 225"/>
+            </g>
+          </svg>
+        </div>
+        <div class="coll-body">
+          <div class="coll-series">Series I</div>
+          <div class="coll-name">日常器</div>
+          <div class="coll-pieces">碗 · 盤 · 杯 · 碟</div>
+          <p class="coll-desc">為日常使用設計的器皿系列，厚實的器壁保溫良好，微溫的赭石釉面，讓每一頓飯都多了一份手感溫度。</p>
+          <div class="coll-price">NT$ 680 起</div>
+        </div>
+      </div>
+      <div class="coll-card reveal">
+        <div class="coll-visual">
+          <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block">
+            <rect width="400" height="400" fill="#f2ece0"/>
+            <defs><radialGradient id="cvg2" cx="50%" cy="40%" r="60%"><stop offset="0%" stop-color="rgba(106,120,88,0.1)"/><stop offset="100%" stop-color="rgba(242,236,224,0)"/></radialGradient></defs>
+            <rect width="400" height="400" fill="url(#cvg2)"/>
+            <!-- Tea set - teapot + cups -->
+            <!-- Teapot body -->
+            <path d="M140 300 Q128 280 128 255 Q128 228 140 210 Q155 196 180 192 Q195 188 210 192 Q235 196 248 210 Q260 228 260 255 Q260 280 248 300Z" fill="rgba(106,72,48,0.5)" stroke="rgba(200,168,128,0.2)" stroke-width="1.2"/>
+            <!-- Teapot spout -->
+            <path d="M248 248 Q275 235 285 248 Q295 260 285 268 Q275 272 265 265" stroke="rgba(154,80,53,0.4)" stroke-width="6" fill="none" stroke-linecap="round"/>
+            <!-- Teapot handle -->
+            <path d="M128 248 Q105 248 102 262 Q100 276 118 278" stroke="rgba(154,80,53,0.4)" stroke-width="5" fill="none" stroke-linecap="round"/>
+            <!-- Teapot lid -->
+            <ellipse cx="194" cy="192" rx="45" ry="14" fill="rgba(106,72,48,0.45)" stroke="rgba(200,168,128,0.2)" stroke-width="1"/>
+            <ellipse cx="194" cy="185" rx="20" ry="7" fill="rgba(106,72,48,0.35)" stroke="rgba(200,168,128,0.18)" stroke-width="0.8"/>
+            <circle cx="194" cy="180" r="5" fill="rgba(184,112,64,0.4)"/>
+            <!-- Tea cup left -->
+            <path d="M70 320 Q64 310 64 300 Q64 289 70 282 Q76 278 85 278 Q94 278 100 282 Q106 289 106 300 Q106 310 100 320Z" fill="rgba(154,80,53,0.45)" stroke="rgba(200,168,128,0.18)" stroke-width="0.8"/>
+            <ellipse cx="85" cy="278" rx="21" ry="7" fill="rgba(154,80,53,0.35)" stroke="rgba(200,168,128,0.2)" stroke-width="0.7"/>
+            <!-- Tea cup right -->
+            <path d="M308 320 Q302 310 302 300 Q302 289 308 282 Q314 278 323 278 Q332 278 338 282 Q344 289 344 300 Q344 310 338 320Z" fill="rgba(106,72,48,0.45)" stroke="rgba(200,168,128,0.18)" stroke-width="0.8"/>
+            <ellipse cx="323" cy="278" rx="21" ry="7" fill="rgba(106,72,48,0.35)" stroke="rgba(200,168,128,0.2)" stroke-width="0.7"/>
+            <!-- Steam -->
+            <path d="M180 185 Q182 170 180 158" stroke="rgba(106,72,48,0.2)" stroke-width="1" fill="none" stroke-linecap="round"/>
+            <path d="M200 184 Q202 169 200 157" stroke="rgba(106,72,48,0.15)" stroke-width="0.8" fill="none" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="coll-body">
+          <div class="coll-series">Series II</div>
+          <div class="coll-name">茶器</div>
+          <div class="coll-pieces">茶壺 · 茶杯 · 茶海</div>
+          <p class="coll-desc">專為台灣烏龍茶、普洱茶設計的茶器組。以低溫素燒後二次上釉，保留陶土的透氣性，讓茶湯更柔和圓潤。</p>
+          <div class="coll-price">NT$ 2,400 起（組）</div>
+        </div>
+      </div>
+      <div class="coll-card reveal">
+        <div class="coll-visual">
+          <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block">
+            <rect width="400" height="400" fill="#ede5d5"/>
+            <defs><radialGradient id="cvg3" cx="50%" cy="35%" r="60%"><stop offset="0%" stop-color="rgba(106,72,48,0.08)"/><stop offset="100%" stop-color="rgba(237,229,213,0)"/></radialGradient></defs>
+            <rect width="400" height="400" fill="url(#cvg3)"/>
+            <!-- Flower vase - tall elegant -->
+            <path d="M160 360 Q150 335 150 295 Q150 255 155 220 Q158 190 163 170 Q168 153 175 144 Q185 132 200 130 Q215 132 225 144 Q232 153 237 170 Q242 190 245 220 Q250 255 250 295 Q250 335 240 360Z" fill="rgba(184,112,64,0.45)" stroke="rgba(200,168,128,0.25)" stroke-width="1.5"/>
+            <!-- Vase neck -->
+            <path d="M175 140 Q185 128 200 126 Q215 128 225 140" stroke="rgba(184,112,64,0.4)" stroke-width="2" fill="none"/>
+            <ellipse cx="200" cy="130" rx="26" ry="8.5" fill="rgba(184,112,64,0.35)" stroke="rgba(200,168,128,0.3)" stroke-width="1"/>
+            <!-- Vase texture (throwing marks) -->
+            <g stroke="rgba(200,168,128,0.12)" stroke-width="0.7" fill="none">
+              <path d="M152 310 Q200 300 248 310"/>
+              <path d="M151 270 Q200 258 249 270"/>
+              <path d="M152 230 Q200 218 248 230"/>
+              <path d="M155 195 Q200 183 245 195"/>
+            </g>
+            <!-- Vase base foot -->
+            <ellipse cx="200" cy="360" rx="45" ry="12" fill="rgba(106,72,48,0.25)" stroke="rgba(200,168,128,0.2)" stroke-width="1"/>
+            <!-- Branches in vase -->
+            <path d="M200 126 Q190 80 175 50" stroke="rgba(62,50,30,0.3)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+            <path d="M190 90 Q165 70 148 55" stroke="rgba(62,50,30,0.22)" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+            <path d="M200 126 Q215 75 225 40" stroke="rgba(62,50,30,0.25)" stroke-width="2" fill="none" stroke-linecap="round"/>
+            <path d="M220 80 Q245 60 260 50" stroke="rgba(62,50,30,0.18)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+            <!-- Small blossoms -->
+            <circle cx="175" cy="48" r="6" fill="rgba(200,168,128,0.35)"/>
+            <circle cx="148" cy="54" r="5" fill="rgba(200,168,128,0.28)"/>
+            <circle cx="225" cy="38" r="5.5" fill="rgba(200,168,128,0.32)"/>
+            <circle cx="260" cy="50" r="4.5" fill="rgba(200,168,128,0.25)"/>
+          </svg>
+        </div>
+        <div class="coll-body">
+          <div class="coll-series">Series III</div>
+          <div class="coll-name">花器</div>
+          <div class="coll-pieces">花瓶 · 花插 · 壁掛</div>
+          <p class="coll-desc">與台灣花藝師合作設計，兼顧當代台灣花藝的用器習慣——細高頸適合台灣野花，低扁口適合山採草葉。</p>
+          <div class="coll-price">NT$ 1,200 起</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORKSHOP -->
+<section class="workshop" id="workshop">
+  <div class="workshop-inner">
+    <div class="workshop-header reveal">
+      <span class="sec-label">Workshops</span>
+      <h2 class="sec-h2" style="color:var(--linen)">體驗課程<br><em>動手做陶</em></h2>
+      <p class="body-text" style="color:rgba(232,222,206,0.38);max-width:480px">不需要任何陶藝經驗，只需要願意靜下來、感受土在手中的重量。每堂課最多8人，由老師一對一指導。</p>
+    </div>
+    <div class="workshop-grid">
+      <div class="ws-item reveal">
+        <svg class="ws-icon" viewBox="0 0 44 44" fill="none">
+          <path d="M10 35 Q10 24 22 18 Q34 12 36 14" stroke="rgba(184,112,64,0.5)" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+          <circle cx="22" cy="18" r="6" stroke="rgba(184,112,64,0.4)" stroke-width="1" fill="rgba(184,112,64,0.06)"/>
+        </svg>
+        <div class="ws-level">入門級</div>
+        <div class="ws-name">初遇土形</div>
+        <div class="ws-en">First Touch Workshop</div>
+        <p class="ws-desc">適合完全沒有陶藝經驗的朋友。從最基本的揉土開始，以手捏成形法（Pinching）製作一個小碗或杯子，不使用拉坯輪，完全感受土的溫度。</p>
+        <div class="ws-meta">
+          <div class="ws-meta-item">
+            <div class="ws-meta-label">時長</div>
+            <div class="ws-meta-val">3 小時</div>
+          </div>
+          <div class="ws-meta-item">
+            <div class="ws-meta-label">人數</div>
+            <div class="ws-meta-val">最多 8 人</div>
+          </div>
+          <div class="ws-meta-item">
+            <div class="ws-meta-label">費用</div>
+            <div class="ws-meta-val">NT$ 1,200</div>
+          </div>
+        </div>
+      </div>
+      <div class="ws-item reveal">
+        <svg class="ws-icon" viewBox="0 0 44 44" fill="none">
+          <circle cx="22" cy="32" rx="10" ry="5" stroke="rgba(184,112,64,0.4)" stroke-width="1" fill="none"/>
+          <path d="M14 28 Q12 20 14 14 Q16 10 22 8 Q28 10 30 14 Q32 20 30 28" stroke="rgba(184,112,64,0.5)" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+        </svg>
+        <div class="ws-level">進階體驗</div>
+        <div class="ws-name">第一次拉坯</div>
+        <div class="ws-en">Wheel Throwing Intro</div>
+        <p class="ws-desc">使用電動拉坯輪，從開土、定中心、開口到拉高，完整體驗手拉坯的基本流程，製作一個小杯或小碗。是土形最受歡迎的課程，需提前一週預約。</p>
+        <div class="ws-meta">
+          <div class="ws-meta-item">
+            <div class="ws-meta-label">時長</div>
+            <div class="ws-meta-val">3.5 小時</div>
+          </div>
+          <div class="ws-meta-item">
+            <div class="ws-meta-label">人數</div>
+            <div class="ws-meta-val">最多 6 人</div>
+          </div>
+          <div class="ws-meta-item">
+            <div class="ws-meta-label">費用</div>
+            <div class="ws-meta-val">NT$ 1,800</div>
+          </div>
+        </div>
+      </div>
+      <div class="ws-item reveal">
+        <svg class="ws-icon" viewBox="0 0 44 44" fill="none">
+          <rect x="8" y="22" width="28" height="16" rx="2" stroke="rgba(184,112,64,0.4)" stroke-width="1" fill="none"/>
+          <path d="M14 22 Q14 14 22 10 Q30 6 30 22" stroke="rgba(184,112,64,0.5)" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+          <line x1="8" y1="30" x2="36" y2="30" stroke="rgba(184,112,64,0.2)" stroke-width="0.7"/>
+        </svg>
+        <div class="ws-level">長期課程</div>
+        <div class="ws-name">從土到燒</div>
+        <div class="ws-en">Clay to Kiln · 8 Sessions</div>
+        <p class="ws-desc">8堂制長期課程，涵蓋手捏、盤築、拉坯、修坯、上釉到窯燒全流程。結業時帶走自己從零製作的完整器皿組，並收到老師手寫的學習紀錄。</p>
+        <div class="ws-meta">
+          <div class="ws-meta-item">
+            <div class="ws-meta-label">時長</div>
+            <div class="ws-meta-val">8 堂 × 3小時</div>
+          </div>
+          <div class="ws-meta-item">
+            <div class="ws-meta-label">人數</div>
+            <div class="ws-meta-val">最多 4 人</div>
+          </div>
+          <div class="ws-meta-item">
+            <div class="ws-meta-label">費用</div>
+            <div class="ws-meta-val">NT$ 9,800</div>
+          </div>
+        </div>
+      </div>
+      <div class="ws-item reveal">
+        <svg class="ws-icon" viewBox="0 0 44 44" fill="none">
+          <path d="M10 36 L10 20 L22 8 L34 20 L34 36" stroke="rgba(184,112,64,0.5)" stroke-width="1.2" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+          <path d="M10 36 L34 36" stroke="rgba(184,112,64,0.3)" stroke-width="1"/>
+          <rect x="16" y="26" width="12" height="10" stroke="rgba(184,112,64,0.3)" stroke-width="0.8" fill="rgba(184,112,64,0.06)"/>
+        </svg>
+        <div class="ws-level">企業 / 包場</div>
+        <div class="ws-name">團隊陶藝日</div>
+        <div class="ws-en">Team Ceramics Day</div>
+        <p class="ws-desc">提供企業團建、生日包場、婚禮前置活動等定制課程。可包場4至20人，提供酒水、音樂設備，讓同事或朋友在揉土與笑聲中，做出屬於這段關係的一件器物。</p>
+        <div class="ws-meta">
+          <div class="ws-meta-item">
+            <div class="ws-meta-label">人數</div>
+            <div class="ws-meta-val">4-20 人</div>
+          </div>
+          <div class="ws-meta-item">
+            <div class="ws-meta-label">費用</div>
+            <div class="ws-meta-val">洽詢報價</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process" id="process">
+  <div class="process-inner">
+    <div class="process-header reveal">
+      <span class="sec-label">From Earth to Object</span>
+      <h2 class="sec-h2">土到器<br><em>六道工序</em></h2>
+    </div>
+    <div class="proc-timeline">
+      <div class="proc-row reveal">
+        <div class="proc-num-col"><div class="proc-num">01</div></div>
+        <div class="proc-line"><div class="proc-dot"></div></div>
+        <div class="proc-content">
+          <div class="proc-name">選土揉土</div>
+          <div class="proc-name-en">Clay Preparation</div>
+          <p class="proc-desc">依據作品用途，選取台北三峽紅土、苗栗陶土或進口陶土，以手揉去除氣泡，調整含水量，是決定作品質感的第一關。</p>
+        </div>
+      </div>
+      <div class="proc-row reveal">
+        <div class="proc-num-col"><div class="proc-num">02</div></div>
+        <div class="proc-line"><div class="proc-dot"></div></div>
+        <div class="proc-content">
+          <div class="proc-name">拉坯成形</div>
+          <div class="proc-name-en">Throwing on the Wheel</div>
+          <p class="proc-desc">電動拉坯輪以穩定轉速輔助，創作者以手掌的位置與力道，引導土往上拉高、往外擴張，在幾秒至幾分鐘內決定器形的骨架。</p>
+        </div>
+      </div>
+      <div class="proc-row reveal">
+        <div class="proc-num-col"><div class="proc-num">03</div></div>
+        <div class="proc-line"><div class="proc-dot"></div></div>
+        <div class="proc-content">
+          <div class="proc-name">晾乾修坯</div>
+          <div class="proc-name-en">Drying & Trimming</div>
+          <p class="proc-desc">拉好的器形需自然晾至半乾（革質狀態），再翻面以修坯刀修整器底、刮薄器壁，精修足圈，讓重量與厚度達到設計比例。</p>
+        </div>
+      </div>
+      <div class="proc-row reveal">
+        <div class="proc-num-col"><div class="proc-num">04</div></div>
+        <div class="proc-line"><div class="proc-dot"></div></div>
+        <div class="proc-content">
+          <div class="proc-name">素燒一次</div>
+          <div class="proc-name-en">Bisque Firing · 850°C</div>
+          <p class="proc-desc">完全乾燥後，入窯以850度素燒，燒去水分與有機物，讓陶土轉化為多孔質的素坯（bisqueware），為上釉做準備，同時確認器形不崩裂。</p>
+        </div>
+      </div>
+      <div class="proc-row reveal">
+        <div class="proc-num-col"><div class="proc-num">05</div></div>
+        <div class="proc-line"><div class="proc-dot"></div></div>
+        <div class="proc-content">
+          <div class="proc-name">選釉上釉</div>
+          <div class="proc-name-en">Glazing</div>
+          <p class="proc-desc">土形以自調的石灰基礎釉為主，加入金屬氧化物調色——氧化鐵出赭棕、氧化銅出青綠、氧化鈷出深藍。浸釉、刷釉、噴釉技法混用。</p>
+        </div>
+      </div>
+      <div class="proc-row reveal">
+        <div class="proc-num-col"><div class="proc-num">06</div></div>
+        <div class="proc-line"><div class="proc-dot"></div></div>
+        <div class="proc-content">
+          <div class="proc-name">釉燒完成</div>
+          <div class="proc-name-en">Glaze Firing · 1230°C</div>
+          <p class="proc-desc">以1230度高溫釉燒12至16小時，窯內氣氛、溫差、坯件位置，都會影響最終釉色。每一件燒出來的作品，都是唯一的——這是土形最珍視的事。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ARTIST -->
+<section class="artist" id="artist">
+  <div class="artist-inner">
+    <div class="artist-left reveal-left">
+      <svg class="artist-visual" viewBox="0 0 400 533" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="400" height="533" fill="#f2ece0"/>
+        <defs><radialGradient id="artGlow" cx="40%" cy="30%" r="60%"><stop offset="0%" stop-color="rgba(184,112,64,0.12)"/><stop offset="100%" stop-color="rgba(242,236,224,0)"/></radialGradient></defs>
+        <rect width="400" height="533" fill="url(#artGlow)"/>
+        <!-- Artist portrait (minimal abstraction) -->
+        <!-- Head -->
+        <ellipse cx="200" cy="140" rx="60" ry="68" fill="rgba(184,140,100,0.22)" stroke="rgba(184,112,64,0.12)" stroke-width="0.8"/>
+        <!-- Shoulders / torso -->
+        <path d="M100 280 Q100 230 140 210 Q165 200 200 200 Q235 200 260 210 Q300 230 300 280 L300 420 L100 420Z" fill="rgba(42,32,24,0.85)"/>
+        <!-- Arms (bent at wheel) -->
+        <path d="M100 300 Q80 320 70 360" stroke="rgba(42,32,24,0.8)" stroke-width="22" fill="none" stroke-linecap="round"/>
+        <path d="M300 300 Q320 320 330 360" stroke="rgba(42,32,24,0.8)" stroke-width="22" fill="none" stroke-linecap="round"/>
+        <!-- Hands on clay -->
+        <ellipse cx="200" cy="400" rx="70" ry="25" fill="rgba(154,80,53,0.25)" stroke="rgba(200,168,128,0.2)" stroke-width="1"/>
+        <!-- Vase being made -->
+        <path d="M165 400 Q158 375 158 345 Q158 315 165 300 Q172 290 200 288 Q228 290 235 300 Q242 315 242 345 Q242 375 235 400Z" fill="rgba(154,80,53,0.4)" stroke="rgba(200,168,128,0.2)" stroke-width="1"/>
+        <ellipse cx="200" cy="288" rx="35" ry="11" fill="rgba(154,80,53,0.35)" stroke="rgba(200,168,128,0.2)" stroke-width="0.8"/>
+        <!-- Apron string detail -->
+        <line x1="175" y1="210" x2="150" y2="300" stroke="rgba(232,222,206,0.15)" stroke-width="1"/>
+        <line x1="225" y1="210" x2="250" y2="300" stroke="rgba(232,222,206,0.15)" stroke-width="1"/>
+        <!-- Maker's mark top right -->
+        <rect x="330" y="28" width="48" height="48" rx="2" stroke="rgba(184,112,64,0.25)" stroke-width="1.2" fill="rgba(184,112,64,0.04)"/>
+        <text x="354" y="58" fill="rgba(184,112,64,0.3)" font-size="22" text-anchor="middle" font-family="Georgia,serif">土</text>
+        <!-- Corner marks -->
+        <line x1="14" y1="14" x2="32" y2="14" stroke="rgba(184,112,64,0.2)" stroke-width="0.8"/>
+        <line x1="14" y1="14" x2="14" y2="32" stroke="rgba(184,112,64,0.2)" stroke-width="0.8"/>
+        <line x1="386" y1="519" x2="368" y2="519" stroke="rgba(184,112,64,0.15)" stroke-width="0.8"/>
+        <line x1="386" y1="505" x2="386" y2="519" stroke="rgba(184,112,64,0.15)" stroke-width="0.8"/>
+      </svg>
+    </div>
+    <div class="artist-right reveal">
+      <span class="sec-label">The Artist</span>
+      <h2 class="sec-h2">創作者<em>陳若文</em></h2>
+      <div class="artist-jp">Chen Jo-Wen · チェン・ルオウェン</div>
+      <p class="artist-bio">在師大美術系學了繪畫，卻在27歲那年第一次摸到陶土時，決定轉換人生方向。赴日研習窯燒三年，師從岐阜縣著名的柴燒陶藝家，回台後在三峽老礦場找到了土形的家。</p>
+      <p class="artist-bio">陳若文的作品不追求完美的對稱，反而刻意保留拉坯時的手指痕跡、修坯時的刀刮紋路——那些痕跡，是作品呼吸的方式，也是她和每件土坯共同書寫的日記。</p>
+      <div class="artist-awards">
+        <span class="award-tag">台灣工藝之家 認證</span>
+        <span class="award-tag">岐阜縣 柴燒研修</span>
+        <span class="award-tag">台灣設計月 特展</span>
+        <span class="award-tag">誠品生活 器物策展人</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="cta">
+  <div class="cta-bg-text">土</div>
+  <div class="cta-inner reveal">
+    <div class="cta-label">Visit the Studio</div>
+    <h2 class="cta-h2">來三峽<br><em>摸摸土</em></h2>
+    <p class="cta-desc">工作室位於台北三峽老礦場改建的空間，週末開放參觀，不需預約。體驗課程請提前一週線上報名，作品購買可私訊 Instagram 洽詢。</p>
+    <div style="display:flex;justify-content:center;gap:14px">
+      <a href="#" class="btn-dark-clay">報名體驗課</a>
+      <a href="#collections" class="btn-ghost-clay">瀏覽作品</a>
+    </div>
+    <div style="font-size:11.5px;color:rgba(106,72,48,0.3);font-family:'Helvetica Neue',sans-serif;margin-top:24px;letter-spacing:0.1em">新北市三峽區中山路 × 礦場巷 · 週四至週日 10:00-17:00</div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-logo-zh">土形 Tǔ Xíng</div>
+      <div class="footer-logo-en">Ceramics Studio · Sanxia, Taipei</div>
+      <p class="footer-tagline">台北三峽手拉坯陶藝工作室，以在地陶土製作日常器物，並提供陶藝體驗課程，重視每一件作品的獨特性。</p>
+    </div>
+    <div>
+      <div class="footer-col-title">作品</div>
+      <ul class="footer-links">
+        <li><a href="#">日常器</a></li>
+        <li><a href="#">茶器</a></li>
+        <li><a href="#">花器</a></li>
+        <li><a href="#">客製訂製</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">課程</div>
+      <ul class="footer-links">
+        <li><a href="#">初遇土形</a></li>
+        <li><a href="#">第一次拉坯</a></li>
+        <li><a href="#">從土到燒</a></li>
+        <li><a href="#">團隊陶藝日</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">聯絡</div>
+      <ul class="footer-links">
+        <li><a href="#">報名課程</a></li>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">studio@tuxing.tw</a></li>
+        <li><a href="#">工作室位置</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2024 土形 Tǔ Xíng Ceramics Studio. All rights reserved.</div>
+    <div>製作單位：<a href="https://bridgeseqlab.vercel.app" target="_blank">橋序創研</a></div>
+  </div>
+</footer>
+
+<script>
+var header=document.getElementById('header');
+var logoZh=document.getElementById('logo-zh');
+var logoEn=document.getElementById('logo-en');
+var nav=document.getElementById('nav');
+var navBook=document.getElementById('nav-book');
+window.addEventListener('scroll',function(){
+  if(window.scrollY>80){
+    header.classList.add('scrolled');
+    logoZh.classList.add('dark');
+    logoEn.classList.add('dark');
+    nav.classList.add('dark-nav');
+    navBook.classList.add('dark');
+  }else{
+    header.classList.remove('scrolled');
+    logoZh.classList.remove('dark');
+    logoEn.classList.remove('dark');
+    nav.classList.remove('dark-nav');
+    navBook.classList.remove('dark');
+  }
+});
+var revealEls=document.querySelectorAll('.reveal,.reveal-left');
+var observer=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}})
+},{threshold:0.04});
+revealEls.forEach(function(el){observer.observe(el)});
+</script>
+</body>
+</html>
